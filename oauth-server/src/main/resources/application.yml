@@ -1,0 +1,30 @@
+spring:
+  security:
+    oauth2:
+      authorizationserver:
+        issuer: http://localhost:8080
+        client:
+          frontend-client:
+            registration:
+              client-id: frontend-client
+              client-secret: "{noop}secret"
+              client-name: Frontend Client
+              client-authentication-methods:
+                - none
+              post-logout-redirect-uris:
+                - http://localhost:4200
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+              redirect-uris:
+                - http://localhost:4200
+              scopes:
+                - openid
+                - profile
+                - offline_access
+
+
+
+#logging:
+#  level:
+#    root: debug
